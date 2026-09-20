@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stoya合集专题页面，收录Stoya的影视作品、写真集及个人资料。提供高清资源分类、观看指南及常见问题解答。">
+    <meta name="keywords" content="Stoya合集,Stoya,Stoya写真,Stoya影视作品,Stoya个人资料">
+    <title>Stoya合集-高清影视作品与写真资源索引</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-body: #0f0f11;
+            --bg-card: #1a1a1d;
+            --bg-header: #141416;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent: #ff4d6d;
+            --accent-hover: #ff758f;
+            --border: #2d2d30;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--text-main);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-header);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: var(--spacing-md) 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text-main);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: var(--spacing-lg) 0;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(255, 77, 109, 0.1) 0%, transparent 70%);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-sm);
+            font-weight: 800;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto var(--spacing-lg);
+            font-size: 1.1rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+            border-top: 1px solid var(--border);
+            padding-top: var(--spacing-md);
+        }
+
+        .stat-item strong {
+            display: block;
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        .stat-item span {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Section Layout */
+        section {
+            padding: var(--spacing-lg) 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            position: relative;
+            padding-left: var(--spacing-md);
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 4px;
+            bottom: 4px;
+            width: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        .view-all {
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        /* Card Component */
+        .card {
+            background-color: var(--bg-card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .card-image-wrapper {
+            position: relative;
+            padding-top: 140%; /* Aspect ratio for posters */
+            background-color: #2a2a2e;
+        }
+
+        .card-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: var(--spacing-sm);
+            right: var(--spacing-sm);
+            background-color: rgba(0,0,0,0.7);
+            color: #fff;
+            padding: 2px 8px;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            backdrop-filter: blur(4px);
+        }
+
+        .card-content {
+            padding: var(--spacing-md);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.4;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            gap: 12px;
+        }
+
+        .card-meta span {
+            display: flex;
+            align-items: center;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: #b0b0b0;
+            margin-bottom: var(--spacing-md);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            flex: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-main);
+            background-color: rgba(255,255,255,0.05);
+        }
+
+        /* Featured Section (Side by Side) */
+        .featured-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-lg);
+        }
+
+        .featured-card {
+            background-color: var(--bg-card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            display: flex;
+            height: 100%;
+            min-height: 400px;
+        }
+
+        .featured-img {
+            width: 40%;
+            object-fit: cover;
+        }
+
+        .featured-info {
+            padding: var(--spacing-lg);
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            border: 1px solid transparent;
+        }
+
+        .tag:hover {
+            color: var(--accent);
+            border-color: rgba(255, 77, 109, 0.3);
+        }
+
+        /* Sidebar List */
+        .sidebar-list li {
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .sidebar-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .sidebar-list a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sidebar-list-title {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .sidebar-list-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            background-color: var(--bg-card);
+            margin-bottom: var(--spacing-md);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: var(--spacing-md);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-answer {
+            padding: 0 var(--spacing-md) var(--spacing-md);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-header);
+            padding: var(--spacing-lg) 0;
+            margin-top: var(--spacing-lg);
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-col h4 {
+            color: var(--text-main);
+            margin-bottom: var(--spacing-md);
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--border);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            nav {
+                display: none; /* Simplified for mobile */
+            }
+
+            .featured-container {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-card {
+                flex-direction: column;
+            }
+
+            .featured-img {
+                width: 100%;
+                height: 200px;
+            }
+
+            .featured-info {
+                width: 100%;
+                padding: var(--spacing-md);
+            }
+
+            .header-inner {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="#" class="logo">Stoya<span>Collection</span></a>
+        <nav>
+            <ul>
+                <li><a href="#movies" class="active">影视作品</a></li>
+                <li><a href="#photos">写真集</a></li>
+                <li><a href="#about">人物档案</a></li>
+                <li><a href="#faq">常见问题</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Stoya 合集</h1>
+            <p>全面收录Stoya的职业生涯影像资料，包括代表作品、高清写真及独家访谈。探索这位标志性人物的艺术成就与影像风格。</p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <strong>50+</strong>
+                    <span>影视作品</span>
+                </div>
+                <div class="stat-item">
+                    <strong>120+</strong>
+                    <span>写真合集</span>
+                </div>
+                <div class="stat-item">
+                    <strong>15+</strong>
+                    <span>获奖提名</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section class="container">
+        <div class="section-header">
+            <h2 class="section-title">精选推荐</h2>
+            <a href="#" class="view-all">查看全部 &rarr;</a>
+        </div>
+        <div class="featured-container">
+            <article class="card featured-card">
+                <img src="https://picsum.photos/seed/stoya1/800/600" alt="Stoya精选作品封面" class="featured-img">
+                <div class="featured-info">
+                    <span class="card-badge">年度精选</span>
+                    <h3 class="card-title">《黑色档案：Stoya》深度解析</h3>
+                    <p class="card-desc">深入探讨Stoya在影视行业中的标志性角色与表演风格，解析其作品背后的叙事艺术与美学构建。</p>
+                    <div class="card-meta">
+                        <span>2023-10-15</span>
+                        <span>纪录片</span>
+                    </div>
+                    <a href="#" class="btn">阅读全文</a>
+                </div>
+            </article>
+
+            <aside>
+                <h3 class="section-title" style="font-size: 1.2rem; margin-bottom: 1rem;">最新收录</h3>
+                <ul class="sidebar-list">
+                    <li>
+                        <a href="#">
+                            <span class="sidebar-list-title">《完美曲线》高清写真集</span>
+                            <span class="sidebar-list-date">2023-11-02</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="sidebar-list-title">《午夜俱乐部》幕后花絮</span>
+                            <span class="sidebar-list-date">2023-10-28</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="sidebar-list-title">Stoya访谈：关于独立与创作</span>
+                            <span class="sidebar-list-date">2023-10-20</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="sidebar-list-title">经典复刻：早期作品回顾</span>
+                            <span class="sidebar-list-date">2023-10-15</span>
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+        </div>
+    </section>
+
+    <!-- Movies Grid -->
+    <section id="movies">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">热门影视</h2>
+                <div class="tag-cloud">
+                    <a href="#" class="tag">剧情</a>
+                    <a href="#" class="tag">短片</a>
+                    <a href="#" class="tag">实验</a>
+                </div>
+            </div>
+            <div class="grid">
+                <article class="card">
+                    <div class="card-image-wrapper">
+                        <span class="card-badge">HD</span>
+                        <img src="https://picsum.photos/seed/stoya2/400/600" alt="作品封面" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">《玻璃之城》</h3>
+                        <div class="card-meta">
+                            <span>2022</span>
+                            <span>1h 45m</span>
+                        </div>
+                        <p class="card-desc">一部关于都市孤独与连接的实验性短片，Stoya担任主演并参与剧本创作。</p>
+                        <a href="#" class="btn btn-outline">查看详情</a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-image-wrapper">
+                        <span class="card-badge">热门</span>
+                        <img src="https://picsum.photos/seed/stoya3/400/600" alt="作品封面" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">《蓝色时刻》</h3>
+                        <div class="card-meta">
+                            <span>2021</span>
+                            <span>2h 10m</span>
+                        </div>
+                        <p class="card-desc">探索人性深处的情感纠葛，Stoya的表演细腻而富有层次感。</p>
+                        <a href="#" class="btn btn-outline">查看详情</a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-image-wrapper">
+                        <img src="https://picsum.photos/seed/stoya4/400/600" alt="作品封面" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">《无声呐喊》</h3>
+                        <div class="card-meta">
+                            <span>2020</span>
+                            <span>1h 30m</span>
+                        </div>
+                        <p class="card-desc">一部获奖短片，聚焦于声音与沉默的隐喻表达。</p>
+                        <a href="#" class="btn btn-outline">查看详情</a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-image-wrapper">
+                        <img src="https://picsum.photos/seed/stoya5/400/600" alt="作品封面" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">《都市传说》</h3>
+                        <div class="card-meta">
+                            <span>2019</span>
+                            <span>1h 55m</span>
+                        </div>
+                        <p class="card-desc">结合了超自然元素与都市生活的现代惊悚片。</p>
+                        <a href="#" class="btn btn-outline">查看详情</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photos Grid -->
+    <section id="photos">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">写真集锦</h2>
+                <a href="#" class="view-all">浏览图库 &rarr;</a>
+            </div>
+            <div class="grid grid-4">
+                <article class="card">
+                    <div class="card-image-wrapper" style="padding-top: 100%;">
+                        <img src="https://picsum.photos/seed/stoya6/300/300" alt="写真图片" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">黑白风格</h3>
+                        <p class="card-desc" style="font-size: 0.8rem;">光影与质感的极致展现</p>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-image-wrapper" style="padding-top: 100%;">
+                        <img src="https://picsum.photos/seed/stoya7/300/300" alt="写真图片" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">复古时尚</h3>
+                        <p class="card-desc" style="font-size: 0.8rem;">经典色彩的复刻</p>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-image-wrapper" style="padding-top: 100%;">
+                        <img src="https://picsum.photos/seed/stoya8/300/300" alt="写真图片" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">自然风光</h3>
+                        <p class="card-desc" style="font-size: 0.8rem;">户外人像系列</p>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-image-wrapper" style="padding-top: 100%;">
+                        <img src="https://picsum.photos/seed/stoya9/300/300" alt="写真图片" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">艺术特写</h3>
+                        <p class="card-desc" style="font-size: 0.8rem;">眼部与表情的细节捕捉</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Bio Section -->
+    <section id="about" style="background-color: #141416;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">人物档案</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: var(--spacing-lg); align-items: center;">
+                <div style="background-color: var(--bg-card); padding: var(--spacing-lg); border-radius: var(--radius); text-align: center;">
+                    <img src="https://picsum.photos/seed/stoya_portrait/200/200" alt="Stoya肖像" style="width: 150px; height: 150px; border-radius: 50%; margin: 0 auto; border: 3px solid var(--accent);">
+                </div>
+                <div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: var(--spacing-md);">Stoya (莎娃)</h3>
+                    <p style="margin-bottom: var(--spacing-md); color: var(--text-muted);">
+                        Stoya，原名Andrea Renee Gaines，是一位美国演员、作家和模特。她以其独特的气质和多才多艺的表演风格而闻名。除了演艺事业外，她还积极参与文学创作，并在多个平台上发表文章，探讨女性主义、艺术表达以及行业内的议题。
+                    </p>
+                    <p style="margin-bottom: var(--spacing-md); color: var(--text-muted);">
+                        本合集致力于整理她职业生涯中的关键节点，为观众和研究者提供全面、系统的资料参考。
+                    </p>
+                    <div style="display: flex; gap: var(--spacing-md);">
+                        <a href="#" class="btn">查看完整传记</a>
+                        <a href="#" class="btn btn-outline">相关出版物</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">常见问题</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item active">
+                    <div class="faq-question">
+                        <span>这些资源是否包含付费内容？</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        本页面仅提供公开的资料索引、影评及非商业用途的图片展示。所有具体的影视作品观看链接均指向官方发行渠道或合法的流媒体平台。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>如何获取高清壁纸？</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        在“写真集锦”板块，您可以直接点击图片查看大图。部分高清壁纸设有下载选项，请遵循图片版权方的使用条款。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>是否有Stoya的官方社交媒体？</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        建议通过搜索引擎查找其官方认证账号，以获取最新动态和一手资讯。请确保甄别账号真实性，谨防假冒。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于合集</h4>
+                <p>本站是一个专注于Stoya影像资料的整理与展示平台，旨在为粉丝和研究者提供纯净、无广告的浏览体验。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#movies">影视作品</a></li>
+                    <li><a href="#photos">写真集锦</a></li>
+                    <li><a href="#about">人物档案</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>版权声明</h4>
+                <ul>
+                    <li>本站内容仅供个人学习与欣赏</li>
+                    <li>所有图片版权归原作者所有</li>
+                    <li>如侵犯您的权益，请联系删除</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Stoya Collection Archive. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // FAQ Toggle Logic
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const icon = question.querySelector('span:last-child');
+            
+            question.addEventListener('click', () => {
+                // Close others
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('span:last-child').textContent = '+';
+                    }
+                });
+                
+                // Toggle current
+                item.classList.toggle('active');
+                icon.textContent = item.classList.contains('active') ? '-' : '+';
+            });
+        });
+
+        // Smooth Scroll for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+                      </html>
