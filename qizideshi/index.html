@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="妻子世界免费看完整版 - 提供高清正版漫画阅读服务，涵盖剧情简介、角色介绍及章节更新，致力于为漫画爱好者提供优质的阅读体验。">
+    <meta name="keywords" content="妻子世界,妻子世界漫画,妻子世界免费看,妻子世界完整版,妻子世界在线阅读">
+    <title>妻子世界免费看完整版 - 高清正版漫画阅读平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #4ecdc4;
+            --dark-bg: #1a1a1a;
+            --light-bg: #f7f9fc;
+            --text-main: #333333;
+            --text-light: #666666;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: var(--light-bg);
+            border-radius: 20px;
+            padding: 6px 16px;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 0.9rem;
+            width: 150px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fff0f0 0%, #fff 100%);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            color: var(--dark-bg);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--text-main);
+            border: 1px solid #ddd;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Main Layout */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            width: 100%;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title span {
+            font-weight: 700;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .section-title span::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 20px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Manga Grid */
+        .manga-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .manga-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .manga-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .card-image {
+            width: 100%;
+            aspect-ratio: 2/3;
+            background-color: #eee;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .manga-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .manga-card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .read-btn {
+            background: white;
+            color: var(--dark-bg);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .card-info {
+            padding: 12px;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .tag {
+            background-color: #ffebeb;
+            color: var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        /* Features Section */
+        .features {
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            margin-bottom: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .feature-item h3 {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .feature-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Info Section */
+        .info-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .info-content h3 {
+            margin-bottom: 16px;
+            font-size: 1.2rem;
+        }
+
+        .info-content p {
+            margin-bottom: 12px;
+            color: var(--text-light);
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-list li::before {
+            content: '✓';
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: #ccc;
+            padding: 40px 20px;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+            }
+            
+            nav ul {
+                margin: 15px 0;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .info-section {
+                grid-template-columns: 1fr;
+            }
+
+            .manga-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <div class="logo">漫画屋</div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">热门</a></li>
+                <li><a href="#">更新</a></li>
+                <li><a href="#">排行榜</a></li>
+            </ul>
+        </nav>
+        <div class="search-box">
+            <input type="text" placeholder="搜索漫画...">
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>妻子世界免费看完整版</h1>
+        <p>探索情感与成长的故事，高清画质，流畅阅读体验。即刻开启您的漫画阅读之旅。</p>
+        <div class="cta-buttons">
+            <a href="#latest" class="btn btn-primary">开始阅读</a>
+            <a href="#features" class="btn btn-secondary">了解我们</a>
+        </div>
+    </div>
+</section>
+
+<main>
+    <!-- Featured Section -->
+    <section id="latest" class="section-title">
+        <span>最新更新</span>
+        <a href="#" style="font-size: 0.9rem; color: var(--primary-color);">查看更多 ></a>
+    </section>
+
+    <div class="manga-grid">
+        <!-- Card 1 -->
+        <article class="manga-card">
+            <a href="#" class="card-image">
+                <img src="https://picsum.photos/seed/comic1/300/450" alt="妻子世界封面">
+                <div class="card-overlay">
+                    <span class="read-btn">立即阅读</span>
+                </div>
+            </a>
+            <div class="card-info">
+                <h3 class="card-title">妻子世界 (Wife's World)</h3>
+                <div class="card-meta">
+                    <span class="tag">已完结</span>
+                    <span>更新至 180话</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="manga-card">
+            <a href="#" class="card-image">
+                <img src="https://picsum.photos/seed/comic2/300/450" alt="热门漫画封面">
+                <div class="card-overlay">
+                    <span class="read-btn">立即阅读</span>
+                </div>
+            </a>
+            <div class="card-info">
+                <h3 class="card-title">我的老婆是女帝</h3>
+                <div class="card-meta">
+                    <span class="tag">连载中</span>
+                    <span>更新至 45话</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="manga-card">
+            <a href="#" class="card-image">
+                <img src="https://picsum.photos/seed/comic3/300/450" alt="情感漫画封面">
+                <div class="card-overlay">
+                    <span class="read-btn">立即阅读</span>
+                </div>
+            </a>
+            <div class="card-info">
+                <h3 class="card-title">恋爱回旋</h3>
+                <div class="card-meta">
+                    <span class="tag">已完结</span>
+                    <span>更新至 90话</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="manga-card">
+            <a href="#" class="card-image">
+                <img src="https://picsum.photos/seed/comic4/300/450" alt="都市漫画封面">
+                <div class="card-overlay">
+                    <span class="read-btn">立即阅读</span>
+                </div>
+            </a>
+            <div class="card-info">
+                <h3 class="card-title">都市异能录</h3>
+                <div class="card-meta">
+                    <span class="tag">连载中</span>
+                    <span>更新至 120话</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="manga-card">
+            <a href="#" class="card-image">
+                <img src="https://picsum.photos/seed/comic5/300/450" alt="剧情漫画封面">
+                <div class="card-overlay">
+                    <span class="read-btn">立即阅读</span>
+                </div>
+            </a>
+            <div class="card-info">
+                <h3 class="card-title">双城之战</h3>
+                <div class="card-meta">
+                    <span class="tag">热门</span>
+                    <span>更新至 200话</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="manga-card">
+            <a href="#" class="card-image">
+                <img src="https://picsum.photos/seed/comic6/300/450" alt="治愈系漫画封面">
+                <div class="card-overlay">
+                    <span class="read-btn">立即阅读</span>
+                </div>
+            </a>
+            <div class="card-info">
+                <h3 class="card-title">治愈系日常</h3>
+                <div class="card-meta">
+                    <span class="tag">连载中</span>
+                    <span>更新至 30话</span>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <!-- Features Section -->
+    <section id="features">
+        <div class="section-title">
+            <span>阅读优势</span>
+        </div>
+        <div class="features">
+            <div class="feature-item">
+                <div class="feature-icon">🚀</div>
+                <h3>极速加载</h3>
+                <p>优化服务器性能，确保漫画图片秒开，无卡顿。</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📱</div>
+                <h3>全平台适配</h3>
+                <p>完美支持手机、平板和电脑端，随时随地阅读。</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">💎</div>
+                <h3>高清画质</h3>
+                <p>提供多种清晰度选择，还原漫画细节，提升阅读体验。</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🔒</div>
+                <h3>安全无忧</h3>
+                <p>无广告弹窗干扰，绿色无毒，保护您的设备安全。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info-section">
+        <div class="info-content">
+            <h3>关于《妻子世界》</h3>
+            <p>《妻子世界》是一部以现实生活为背景的漫画作品，讲述了主角在婚姻生活中遇到的挑战、成长与情感变化。故事细腻地描绘了现代家庭关系的复杂性，通过幽默与感性的交织，展现了夫妻之间相互理解与包容的重要性。</p>
+            <p>该作品以其独特的叙事风格和深刻的人物刻画而广受读者喜爱，是了解现代情感生活的优质读物。</p>
+        </div>
+        <div class="info-content">
+            <h3>阅读指南</h3>
+            <ul class="info-list">
+                <li>请通过正规渠道支持正版漫画。</li>
+                <li>本站收录内容仅供个人学习与交流。</li>
+                <li>如发现侵权内容，请及时联系我们删除。</li>
+                <li>阅读前请确认您的年龄符合内容分级要求。</li>
+            </ul>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h4>漫画屋</h4>
+            <p style="font-size: 0.9rem; line-height: 1.8;">致力于为漫画爱好者提供最优质的免费在线阅读服务，汇集各类热门漫画资源。</p>
+        </div>
+        <div class="footer-col">
+            <h4>快速链接</h4>
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">排行榜</a></li>
+                <li><a href="#">分类浏览</a></li>
+                <li><a href="#">投稿建议</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>帮助中心</h4>
+            <ul>
+                <li><a href="#">常见问题</a></li>
+                <li><a href="#">阅读教程</a></li>
+                <li><a href="#">隐私政策</a></li>
+                <li><a href="#">联系我们</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2023 漫画屋. All Rights Reserved. 本站内容仅供学习交流使用.</p>
+    </div>
+</footer>
+
+</body>
+</html>
