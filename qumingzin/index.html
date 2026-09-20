@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="取名字女孩 - 专业女孩起名工具、好听的女孩名字大全、五行八字取名指南及流行趋势分析。提供清新、优雅、寓意美好的女宝宝名字推荐。">
+    <meta name="keywords" content="取名字女孩,女孩起名,女宝宝取名,好听的名字,女孩名字大全,五行取名">
+    <title>取名字女孩-好听的女孩名字大全与起名指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d88a9e;
+            --primary-dark: #b86a80;
+            --secondary-color: #fce4ec;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #f9f9fa;
+            --bg-card: #ffffff;
+            --border-radius: 12px;
+            --shadow: 0 4px 12px rgba(212, 138, 158, 0.1);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .header-actions button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+            background: var(--bg-card);
+            padding: 8px;
+            border-radius: 50px;
+            box-shadow: var(--shadow);
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-box button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        /* Features */
+        .features {
+            padding: 60px 20px;
+            background-color: var(--bg-card);
+        }
+
+        .features-grid {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            transition: transform 0.3s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .feature-item h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .feature-item p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Naming Categories */
+        .categories {
+            padding: 60px 20px;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .name-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            border: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        .name-card:hover {
+            box-shadow: var(--shadow);
+            border-color: var(--secondary-color);
+        }
+
+        .name-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .name-pinyin {
+            font-size: 14px;
+            color: var(--text-light);
+            font-weight: 400;
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .name-meaning {
+            font-size: 14px;
+            color: var(--text-main);
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .name-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            font-size: 12px;
+            color: var(--primary-color);
+            background: var(--secondary-color);
+            padding: 4px 10px;
+            border-radius: 12px;
+        }
+
+        /* Trends Section */
+        .trends {
+            background-color: var(--bg-card);
+            padding: 60px 20px;
+        }
+
+        .trend-list {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .trend-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: var(--bg-body);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .trend-rank {
+            font-size: 24px;
+            font-weight: 800;
+            color: #ddd;
+            margin-right: 20px;
+            min-width: 40px;
+        }
+
+        .trend-content h4 {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .trend-content p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 60px 20px;
+            background-color: #f4f6f8;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 20px;
+            color: var(--primary-color);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 200px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #ccc;
+            padding: 40px 20px;
+            font-size: 14px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            max-width: var(--container-width);
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                margin: 15px 0;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .search-box button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <div class="logo">取名<span>女孩</span></div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">热门名字</a></li>
+                <li><a href="#">诗词起名</a></li>
+                <li><a href="#">五行八字</a></li>
+                <li><a href="#">起名知识</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button onclick="document.getElementById('search-section').scrollIntoView({behavior: 'smooth'})">立即取名</button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>为您的女宝宝寻找独一无二的美好名字</h1>
+        <p>结合传统文化与现代审美，提供好听、寓意深刻且符合五行命理的女孩名字推荐。</p>
+        <div class="search-box" id="search-section">
+            <input type="text" placeholder="输入姓氏或喜欢的字，如：林、婉、雅..." id="nameInput">
+            <button onclick="filterNames()">搜索</button>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-item">
+                <span class="feature-icon">✨</span>
+                <h3>寓意美好</h3>
+                <p>精选寓意吉祥、清新脱俗的字眼，寄托父母对女儿的无限宠爱与期望。</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">📜</span>
+                <h3>文化底蕴</h3>
+                <p>源自诗经、楚辞、唐诗宋词，名字中蕴含深厚的中华传统文化内涵。</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">⚖️</span>
+                <h3>五行平衡</h3>
+                <p>基于生辰八字分析，提供符合命理五行喜用神的名字建议。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Categories -->
+    <section class="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2>热门女孩名字推荐</h2>
+                <p>点击查看不同风格的女孩名字大全</p>
+            </div>
+            
+            <div class="category-grid">
+                <!-- Card 1 -->
+                <div class="name-card">
+                    <div class="name-title">
+                        婉清
+                        <span class="name-pinyin">Wǎn Qīng</span>
+                    </div>
+                    <p class="name-meaning">出自《诗经》“有美一人，清扬婉兮”。形容女子气质优雅，眉目清秀，举止温婉。</p>
+                    <div class="name-tags">
+                        <span class="tag">古典</span>
+                        <span class="tag">温婉</span>
+                        <span class="tag">气质</span>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="name-card">
+                    <div class="name-title">
+                        梓涵
+                        <span class="name-pinyin">Zǐ Hán</span>
+                    </div>
+                    <p class="name-meaning">梓指梓树，寓意茁壮成长、生机勃勃；涵意为包容、修养。整体给人一种既有才干又有内涵的感觉。</p>
+                    <div class="name-tags">
+                        <span class="tag">现代</span>
+                        <span class="tag">文艺</span>
+                        <span class="tag">聪慧</span>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="name-card">
+                    <div class="name-title">
+                        沐瑶
+                        <span class="name-pinyin">Mù Yáo</span>
+                    </div>
+                    <p class="name-meaning">沐为沐浴、润泽，瑶指美玉。寓意如玉般温润，如沐春风，生活顺遂。</p>
+                    <div class="name-tags">
+                        <span class="tag">清新</span>
+                        <span class="tag">富贵</span>
+                        <span class="tag">灵动</span>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="name-card">
+                    <div class="name-title">
+                        若云
+                        <span class="name-pinyin">Ruò Yún</span>
+                    </div>
+                    <p class="name-meaning">出自《道德经》“天地不仁，以万物为刍狗；圣人不仁，以百姓为刍狗”中隐含的淡泊意境，形容女子如云般自由自在，飘逸脱俗。</p>
+                    <div class="name-tags">
+                        <span class="tag">淡雅</span>
+                        <span class="tag">自然</span>
+                        <span class="tag">高洁</span>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="name-card">
+                    <div class="name-title">
+                        靖琪
+                        <span class="name-pinyin">Jìng Qí</span>
+                    </div>
+                    <p class="name-meaning">靖指平安、安定；琪指美玉。寓意一生平安顺遂，品德高尚如玉。</p>
+                    <div class="name-tags">
+                        <span class="tag">端庄</span>
+                        <span class="tag">稳重</span>
+                        <span class="tag">平安</span>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="name-card">
+                    <div class="name-title">
+                        瑶琴
+                        <span class="name-pinyin">Yáo Qín</span>
+                    </div>
+                    <p class="name-meaning">瑶琴即玉琴，古代对琴的美称。象征知书达理，多才多艺，富有艺术气息。</p>
+                    <div class="name-tags">
+                        <span class="tag">艺术</span>
+                        <span class="tag">知性</span>
+                        <span class="tag">典雅</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Naming Trends -->
+    <section class="trends">
+        <div class="container">
+            <div class="section-header">
+                <h2>2024年女孩起名流行趋势</h2>
+                <p>了解当下最受欢迎的名字风格与用字偏好</p>
+            </div>
+            <div class="trend-list">
+                <div class="trend-item">
+                    <span class="trend-rank">1</span>
+                    <div class="trend-content">
+                        <h4>自然意象类</h4>
+                        <p>如“林、溪、雨、晨”等字使用频率上升，体现回归自然、清新治愈的审美。</p>
+                    </div>
+                </div>
+                <div class="trend-item">
+                    <span class="trend-rank">2</span>
+                    <div class="trend-content">
+                        <h4>知性书卷气</h4>
+                        <p>“书、墨、文、雅”等字依然流行，父母更倾向于赋予孩子文化修养和内在美。</p>
+                    </div>
+                </div>
+                <div class="trend-item">
+                    <span class="trend-rank">3</span>
+                    <div class="trend-content">
+                        <h4>叠字与单字名</h4>
+                        <p>“甜甜、暖暖”等叠字名显得可爱亲切；单字名如“安、宁、悦”则追求简洁有力。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="faq-container">
+            <div class="section-header">
+                <h2>女孩起名常见问题</h2>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">起名时应该注意哪些五行原则？</div>
+                <div class="faq-answer">
+                    起名时需结合孩子的出生时间（八字）分析五行喜忌。喜木者可多用草木旁字（如：芷、若），喜水者可用带水旁字（如：涵、清）。避免使用与命理相冲的五行元素，以达到平衡。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">单字名好还是双字名好？</div>
+                <div class="faq-answer">
+                    单字名简洁易记，但重名率相对较高；双字名搭配丰富，更能体现个性。建议结合家族习惯和审美偏好，选择读音响亮、寓意美好的组合。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">如何避免名字过于俗套？</div>
+                <div class="faq-answer">
+                    避免使用过于常见的“大路货”字眼（如：伟、娜、静）。可以尝试从古籍诗词中寻找灵感，或者结合独特的字辈，搭配新颖的组合，同时注意声调的平仄搭配，避免读起来拗口。
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h4>取名女孩</h4>
+            <p>专注为女孩提供专业、科学、富有文化内涵的起名服务。让每一个名字都成为孩子人生的第一份礼物。</p>
+        </div>
+        <div class="footer-col">
+            <h4>栏目导航</h4>
+            <ul>
+                <li><a href="#">热门名字推荐</a></li>
+                <li><a href="#">唐诗宋词起名</a></li>
+                <li><a href="#">五行八字分析</a></li>
+                <li><a href="#">宝宝起名知识</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>关于我们</h4>
+            <ul>
+                <li><a href="#">网站简介</a></li>
+                <li><a href="#">服务条款</a></li>
+                <li><a href="#">隐私政策</a></li>
+                <li><a href="#">联系客服</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 取名字女孩网. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script>
+    // FAQ Toggle Functionality
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        item.querySelector('.faq-question').addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            // Close all other items
+            faqItems.forEach(i => i.classList.remove('active'));
+            // Toggle current item
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+
+    // Simple Search Filter (Visual Feedback)
+    function filterNames() {
+        const input = document.getElementById('nameInput').value.toLowerCase();
+        const cards = document.querySelectorAll('.name-card');
+        let hasResults = false;
+
+        cards.forEach(card => {
+            const title = card.querySelector('.name-title').textContent.toLowerCase();
+            const meaning = card.querySelector('.name-meaning').textContent.toLowerCase();
+            
+            if (title.includes(input) || meaning.includes(input)) {
+                card.style.display = 'block';
+                hasResults = true;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        if (!hasResults && input !== '') {
+            // Optional: Show a message if no results found
+            // alert('未找到包含该字的名字，请尝试其他字。');
+        }
+    }
+</script>
+
+</body>
+</html>
