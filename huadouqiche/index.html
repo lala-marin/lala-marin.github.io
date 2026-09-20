@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="花都汽车城 - 华南地区领先的汽车交易与服务中心。提供新车销售、二手车评估与置换、汽车维修保养、配件供应及金融服务一站式解决方案。汇集众多品牌4S店，打造诚信、透明、高效的汽车消费环境。">
+    <meta name="keywords" content="花都汽车城, 汽车城, 广州花都买车, 二手车交易, 汽车维修, 汽车保养, 4S店, 汽车金融">
+    <title>花都汽车城-华南地区一站式汽车交易与服务中心</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #f8f9fa;
+            --accent-color: #ff6b00;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --border-color: #e1e4e8;
+            --container-width: 1200px;
+            --header-height: 70px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #fff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            height: var(--header-height);
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: #fff;
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background: #004494;
+            border-color: #004494;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: var(--header-height);
+            height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://picsum.photos/seed/carpark/1600/900.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-search {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            background: #fff;
+            padding: 10px;
+            border-radius: 50px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .hero-search input {
+            flex: 1;
+            border: none;
+            padding: 0 20px;
+            outline: none;
+            font-size: 16px;
+        }
+
+        .hero-search button {
+            background: var(--accent-color);
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Services Grid */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border-color: var(--primary-color);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* Brands */
+        .brands-section {
+            background: var(--secondary-color);
+        }
+
+        .brand-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            align-items: center;
+            opacity: 0.7;
+        }
+
+        .brand-item {
+            font-size: 24px;
+            font-weight: 700;
+            color: #888;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Featured Vehicles */
+        .vehicle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .vehicle-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: box-shadow 0.3s;
+        }
+
+        .vehicle-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .vehicle-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            background: #f0f0f0;
+        }
+
+        .vehicle-info {
+            padding: 20px;
+        }
+
+        .vehicle-tags {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: #eef2ff;
+            color: var(--primary-color);
+        }
+
+        .tag.new {
+            background: #e6f7ff;
+            color: #1890ff;
+        }
+
+        .vehicle-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .vehicle-price {
+            color: var(--accent-color);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .vehicle-specs {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: var(--text-gray);
+            border-top: 1px solid #f0f0f0;
+            padding-top: 15px;
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* About & Location */
+        .about-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-gray);
+        }
+
+        .about-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .about-list li::before {
+            content: '✔';
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .location-map {
+            width: 100%;
+            height: 350px;
+            background: #eee;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .location-map img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%);
+        }
+
+        .map-overlay {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.9);
+            padding: 10px 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* FAQ */
+        .faq-section {
+            background: var(--secondary-color);
+        }
+
+        .faq-item {
+            background: #fff;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-gray);
+            display: none;
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .about-layout {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .header-actions {
+                display: none;
+            }
+            .hero-search {
+                flex-direction: column;
+                border-radius: 12px;
+            }
+            .hero-search button {
+                border-radius: 8px;
+                width: 100%;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="#" class="logo">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+                <circle cx="7" cy="17" r="2"/>
+                <circle cx="17" cy="17" r="2"/>
+                <path d="M5 17h2"/>
+            </svg>
+            <span>花都汽车城</span>
+        </a>
+        <nav class="nav-menu">
+            <a href="#" class="active">首页</a>
+            <a href="#services">服务项目</a>
+            <a href="#brands">品牌展厅</a>
+            <a href="#vehicles">热销车型</a>
+            <a href="#about">园区介绍</a>
+            <a href="#contact">联系我们</a>
+        </nav>
+        <div class="header-actions">
+            <a href="#" class="btn btn-outline">登录</a>
+            <a href="#" class="btn btn-primary">发布车辆</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>华南地区一站式汽车交易服务中心</h1>
+            <p>汇聚百余品牌4S店，提供新车选购、二手车评估、维修保养及金融分期一站式解决方案</p>
+            <div class="hero-search">
+                <input type="text" placeholder="搜索品牌、车型或价格范围...">
+                <button>立即搜索</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>核心服务</h2>
+                <p>从购车到用车，为您提供全生命周期的汽车服务支持</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🚗</div>
+                    <h3>新车销售</h3>
+                    <p>汇集丰田、本田、大众等主流品牌授权展厅，提供透明价格与正规售后保障。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔄</div>
+                    <h3>二手车交易</h3>
+                    <p>专业评估师团队，提供免费检测、过户代办及金融服务，让二手车交易更放心。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>维修保养</h3>
+                    <p>标准化车间与原厂配件供应，提供定期保养、事故维修及钣金喷漆服务。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💳</div>
+                    <h3>汽车金融</h3>
+                    <p>与多家银行及金融机构合作，提供低息贷款、以租代购及融资租赁方案。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section id="brands" class="section brands-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>入驻品牌</h2>
+                <p>品牌齐全，车型丰富，满足不同消费者的购车需求</p>
+            </div>
+            <div class="brand-logos">
+                <div class="brand-item">TOYOTA</div>
+                <div class="brand-item">HONDA</div>
+                <div class="brand-item">VOLKSWAGEN</div>
+                <div class="brand-item">FORD</div>
+                <div class="brand-item">GM</div>
+                <div class="brand-item">BYD</div>
+                <div class="brand-item">MAZDA</div>
+                <div class="brand-item">NISSAN</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Vehicles Section -->
+    <section id="vehicles" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>热销推荐</h2>
+                <p>精选园区内高性价比车型，欢迎到店品鉴试驾</p>
+            </div>
+            <div class="vehicle-grid">
+                <!-- Vehicle Card 1 -->
+                <article class="vehicle-card">
+                    <img src="https://picsum.photos/seed/car1/400/300.jpg" alt="轿车展示" class="vehicle-img">
+                    <div class="vehicle-info">
+                        <div class="vehicle-tags">
+                            <span class="tag new">新车</span>
+                            <span class="tag">轿车</span>
+                        </div>
+                        <h3 class="vehicle-title">2024款 豪华型轿车 2.0T 自动挡</h3>
+                        <div class="vehicle-price">¥ 185,800</div>
+                        <div class="vehicle-specs">
+                            <span class="spec-item">⛽ 油耗 6.5L</span>
+                            <span class="spec-item">⚙️ 7挡双离合</span>
+                            <span class="spec-item">👥 5座</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Vehicle Card 2 -->
+                <article class="vehicle-card">
+                    <img src="https://picsum.photos/seed/suv2/400/300.jpg" alt="SUV展示" class="vehicle-img">
+                    <div class="vehicle-info">
+                        <div class="vehicle-tags">
+                            <span class="tag">SUV</span>
+                            <span class="tag">混动</span>
+                        </div>
+                        <h3 class="vehicle-title">2024款 紧凑型SUV 纯电版</h3>
+                        <div class="vehicle-price">¥ 239,900</div>
+                        <div class="vehicle-specs">
+                            <span class="spec-item">🔋 续航 500km</span>
+                            <span class="spec-item">⚙️ 单速变速</span>
+                            <span class="spec-item">👥 5座</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Vehicle Card 3 -->
+                <article class="vehicle-card">
+                    <img src="https://picsum.photos/seed/sedan3/400/300.jpg" alt="商务车展示" class="vehicle-img">
+                    <div class="vehicle-info">
+                        <div class="vehicle-tags">
+                            <span class="tag">商务</span>
+                            <span class="tag">MPV</span>
+                        </div>
+                        <h3 class="vehicle-title">2023款 中型MPV 7座豪华版</h3>
+                        <div class="vehicle-price">¥ 328,000</div>
+                        <div class="vehicle-specs">
+                            <span class="spec-item">⛽ 油耗 9.2L</span>
+                            <span class="spec-item">⚙️ 6AT变速箱</span>
+                            <span class="spec-item">👥 7座</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Vehicle Card 4 -->
+                <article class="vehicle-card">
+                    <img src="https://picsum.photos/seed/suv4/400/300.jpg" alt="越野车展示" class="vehicle-img">
+                    <div class="vehicle-info">
+                        <div class="vehicle-tags">
+                            <span class="tag">SUV</span>
+                            <span class="tag">越野</span>
+                        </div>
+                        <h3 class="vehicle-title">2024款 硬派越野 越野版</h3>
+                        <div class="vehicle-price">¥ 458,000</div>
+                        <div class="vehicle-specs">
+                            <span class="spec-item">⛽ 油耗 12L</span>
+                            <span class="spec-item">⚙️ 分时四驱</span>
+                            <span class="spec-item">👥 5座</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#" class="btn btn-outline">查看更多车型</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About & Location Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="about-layout">
+                <div class="about-text">
+                    <h3>关于花都汽车城</h3>
+                    <p>花都汽车城坐落于广州市花都区，是华南地区规模较大、功能较为完善的现代化汽车交易与服务基地。园区总规划面积广阔，集新车销售、二手车交易、汽车维修、配件供应、金融保险、文化娱乐及汽车用品于一体。</p>
+                    <p>我们致力于为消费者提供“一站式”购车体验，通过整合优质资源，简化购车流程，保障交易安全。同时，园区内设有完善的交通指引、停车场及休息设施，为访客提供舒适的看车环境。</p>
+                    <ul class="about-list">
+                        <li>占地面积超过 50 万平方米</li>
+                        <li>入驻品牌 4S 店及经销商 80 余家</li>
+                        <li>年交易量突破 5 万台次</li>
+                        <li>配备专业二手车评估师团队</li>
+                    </ul>
+                </div>
+                <div class="location-wrapper">
+                    <div class="location-map">
+                        <img src="https://picsum.photos/seed/map/800/600.jpg" alt="花都汽车城地图">
+                        <div class="map-overlay">
+                            <strong>📍 园区地址</strong><br>
+                            广州市花都区新华街迎宾大道<br>
+                            交通指引：地铁9号线 马鞍山公园站
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>常见问题</h2>
+                <p>解答您在购车与用车过程中遇到的疑问</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item active">
+                    <div class="faq-question">在花都汽车城买车可以享受质保吗？</div>
+                    <div class="faq-answer">可以。园区内所有正规授权经销商销售的车辆均享受厂家提供的官方质保服务，具体质保范围请咨询对应品牌展厅。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">二手车交易需要准备什么资料？</div>
+                    <div class="faq-answer">通常需要提供卖方和买方的身份证原件、机动车登记证书、行驶证以及车辆购置税完税证明等资料。园区内可提供代办过户服务。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">园区内提供停车服务吗？</div>
+                    <div class="faq-answer">园区拥有大型停车场，为访客提供免费停车服务，方便您在各品牌展厅之间自由穿梭看车。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何联系园区内的4S店？</div>
+                    <div class="faq-answer">您可以在我们的“品牌展厅”页面查看各展厅的联系电话及地址，或直接拨打园区服务热线咨询。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer id="contact">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>花都汽车城</h4>
+                <p style="margin-bottom: 15px;">华南地区领先的汽车综合服务基地，致力于打造诚信、透明、高效的汽车消费环境。</p>
+                <p>电话：020-12345678</p>
+                <p>邮箱：service@huaduauto.com</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#">新车展厅</a></li>
+                    <li><a href="#">二手车市场</a></li>
+                    <li><a href="#">维修保养</a></li>
+                    <li><a href="#">金融分期</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>服务支持</h4>
+                <ul>
+                    <li><a href="#">购车指南</a></li>
+                    <li><a href="#">保险理赔</a></li>
+                    <li><a href="#">违章查询</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <p style="margin-bottom: 10px;">获取最新车型优惠与园区动态</p>
+                <p>微信公众号：花都汽车城</p>
+                <p>抖音号：花都汽车城官方</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 花都汽车城 版权所有 | 粤ICP备XXXXXXXX号</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Simple FAQ Toggle Logic
+    document.querySelectorAll('.faq-question').forEach(item => {
+        item.addEventListener('click', () => {
+            const parent = item.parentElement;
+            
+            // Close others
+            document.querySelectorAll('.faq-item').forEach(child => {
+                if (child !== parent) {
+                    child.classList.remove('active');
+                }
+            });
+            
+            // Toggle current
+            parent.classList.toggle('active');
+        });
+    });
+
+    // Smooth Scroll for Anchor Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                const headerOffset = 70;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+                                                               </html>
