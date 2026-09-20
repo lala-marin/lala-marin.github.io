@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="极限杀手专注于动作电影、惊悚小说及游戏资讯，提供硬核影评、幕后制作揭秘及深度剧情解析。">
+    <meta name="keywords" content="极限杀手,动作电影,惊悚小说,游戏评测,硬核影评">
+    <title>极限杀手-硬核动作与惊悚文化资讯平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --card-bg: #141414;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-color: #ff3b3b;
+            --accent-hover: #ff5252;
+            --nav-bg: rgba(10, 10, 10, 0.95);
+            --spacing-unit: 1rem;
+            --border-radius: 4px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 导航栏 */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--nav-bg);
+            border-bottom: 1px solid #333;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            height: 85vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-top: 70px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://picsum.photos/seed/actionhero/1920/1080') no-repeat center center/cover;
+            filter: brightness(0.4) grayscale(20%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: rgba(255, 59, 59, 0.15);
+            color: var(--accent-color);
+            border: 1px solid rgba(255, 59, 59, 0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+            border: 1px solid var(--accent-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            border-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 59, 59, 0.2);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-primary);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* 通用 Section */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            bottom: 5px;
+            width: 4px;
+            background-color: var(--accent-color);
+        }
+
+        .section-more {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .section-more:hover {
+            color: var(--accent-color);
+        }
+
+        /* 热门电影 Grid */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid #222;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #444;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .card-image {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-rating {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0,0,0,0.8);
+            color: #ffd700;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-meta {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* 深度解析 Section */
+        .deep-dive {
+            background-color: #0f0f0f;
+        }
+
+        .feature-row {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 80px;
+        }
+
+        .feature-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .feature-image {
+            flex: 1;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        .feature-image img {
+            width: 100%;
+            display: block;
+        }
+
+        .feature-text {
+            flex: 1;
+        }
+
+        .feature-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .feature-text p {
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+        }
+
+        .feature-list {
+            margin-bottom: 25px;
+        }
+
+        .feature-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .feature-list li::before {
+            content: '•';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* 榜单 Section */
+        .ranking-list {
+            counter-reset: rank;
+        }
+
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            border-left: 3px solid transparent;
+            transition: var(--transition);
+        }
+
+        .ranking-item:hover {
+            border-left-color: var(--accent-color);
+            background-color: #1a1a1a;
+        }
+
+        .rank-num {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #333;
+            margin-right: 20px;
+            width: 40px;
+            text-align: center;
+            font-family: 'Impact', sans-serif;
+        }
+
+        .ranking-item:nth-child(1) .rank-num { color: #ffd700; }
+        .ranking-item:nth-child(2) .rank-num { color: #c0c0c0; }
+        .ranking-item:nth-child(3) .rank-num { color: #cd7f32; }
+
+        .rank-content {
+            flex: 1;
+        }
+
+        .rank-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .rank-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* 评论区/互动 */
+        .newsletter {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+
+        .newsletter h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .newsletter p {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .input-group input {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: var(--border-radius);
+            border: 1px solid #333;
+            background-color: #0a0a0a;
+            color: white;
+            outline: none;
+        }
+
+        .input-group input:focus {
+            border-color: var(--accent-color);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #050505;
+            padding: 60px 0 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #1a1a1a;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* 简化处理，移动端隐藏菜单 */
+            .feature-row, .feature-row.reverse { flex-direction: column; gap: 30px; }
+            .input-group { flex-direction: column; }
+            .btn-outline { margin-left: 0; margin-top: 15px; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-inner">
+            <a href="#" class="logo">
+                <span>⚡</span> 极限杀手
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">动作电影</a>
+                <a href="#">硬核游戏</a>
+                <a href="#">深度解析</a>
+                <a href="#">榜单</a>
+                <a href="#">关于我们</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <span class="hero-tag">专注硬核动作体验</span>
+                <h1>探索极限动作的<br>艺术与暴力美学</h1>
+                <p>汇集全球最极致的动作电影、悬疑惊悚小说与高能游戏评测。为您解析幕后特技、剧情逻辑与角色塑造。</p>
+                <div class="cta-group">
+                    <a href="#movies" class="btn btn-primary">浏览最新影评</a>
+                    <a href="#games" class="btn btn-outline">查看游戏榜单</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 热门电影推荐 -->
+        <section id="movies" class="container">
+            <div class="section-header">
+                <h2 class="section-title">精选动作电影</h2>
+                <a href="#" class="section-more">查看全部 &rarr;</a>
+            </div>
+            <div class="grid-3">
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/killermovie1/400/300" alt="动作电影海报">
+                        <span class="card-rating">9.2</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span>2023</span>
+                            <span>动作 / 惊悚</span>
+                        </div>
+                        <h3>无声行动：夜幕</h3>
+                        <p>特战小队在雨夜执行代号为“夜幕”的绝密任务，却发现情报泄露，全员陷入生死围猎。</p>
+                        <a href="#" style="color: var(--accent-color); font-weight: 600;">阅读影评 &rarr;</a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/killermovie2/400/300" alt="动作电影海报">
+                        <span class="card-rating">8.8</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span>2022</span>
+                            <span>犯罪 / 剧情</span>
+                        </div>
+                        <h3>猎杀时刻：零点</h3>
+                        <p>一名退役杀手为了女儿重返战场，必须在24小时内清除潜伏在城市中的叛徒组织。</p>
+                        <a href="#" style="color: var(--accent-color); font-weight: 600;">阅读影评 &rarr;</a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/killermovie3/400/300" alt="动作电影海报">
+                        <span class="card-rating">9.0</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span>2024</span>
+                            <span>科幻 / 动作</span>
+                        </div>
+                        <h3>霓虹猎手</h3>
+                        <p>在赛博朋克都市的底层，一名义体改造者依靠高超的格斗技巧生存，最终挑战庞大的企业帝国。</p>
+                        <a href="#" style="color: var(--accent-color); font-weight: 600;">阅读影评 &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 深度解析 -->
+        <section class="deep-dive">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">深度解析</h2>
+                </div>
+
+                <article class="feature-row">
+                    <div class="feature-image">
+                        <img src="https://picsum.photos/seed/stunt/600/400" alt="特技动作解析">
+                    </div>
+                    <div class="feature-text">
+                        <h3>极限动作设计：从银幕到现实</h3>
+                        <p>好的动作片不仅仅是打斗，更是节奏的掌控。本文深入探讨好莱坞与亚洲动作电影在特技设计上的不同理念，以及如何通过剪辑将瞬间的爆发力最大化。</p>
+                        <ul class="feature-list">
+                            <li>实战与特效的平衡艺术</li>
+                            <li>慢动作镜头的叙事功能</li>
+                            <li>现代武器与近身格斗的结合</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">阅读全文</a>
+                    </div>
+                </article>
+
+                <article class="feature-row reverse">
+                    <div class="feature-image">
+                        <img src="https://picsum.photos/seed/gaming/600/400" alt="游戏角色设计">
+                    </div>
+                    <div class="feature-text">
+                        <h3>杀手角色心理学：如何塑造令人信服的反派？</h3>
+                        <p>一个成功的杀手角色往往有着复杂的内心世界。从《疾速追杀》中的约翰·威克到《杀死比尔》中的贝蒂·萨布，我们分析这些角色如何让玩家产生代入感。</p>
+                        <ul class="feature-list">
+                            <li>动机的合理性与情感深度</li>
+                            <li>技能体系与角色成长曲线</li>
+                            <li>道德模糊地带的探讨</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">阅读全文</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 游戏榜单 -->
+        <section id="games" class="container">
+            <div class="section-header">
+                <h2 class="section-title">高能游戏推荐</h2>
+                <a href="#" class="section-more">查看全部 &rarr;</a>
+            </div>
+            <div class="ranking-list">
+                <a href="#" class="ranking-item">
+                    <span class="rank-num">1</span>
+                    <div class="rank-content">
+                        <h4 class="rank-title">幽灵行者 2 (Ghostwire: Tokyo)</h4>
+                        <span class="rank-desc">第一人称动作射击 / 2022 / 绝佳的近战体验</span>
+                    </div>
+                </a>
+                <a href="#" class="ranking-item">
+                    <span class="rank-num">2</span>
+                    <div class="rank-content">
+                        <h4 class="rank-title">真人快打 1 (Mortal Kombat 1)</h4>
+                        <span class="rank-desc">格斗 / 2023 / 经典角色的重生与重构</span>
+                    </div>
+                </a>
+                <a href="#" class="ranking-item">
+                    <span class="rank-num">3</span>
+                    <div class="rank-content">
+                        <h4 class="rank-title">浴血黑帮：传奇 (Peaky Blinders: The Game)</h4>
+                        <span class="rank-desc">开放世界 / 2023 / 黑帮战术与枪械对决</span>
+                    </div>
+                </a>
+                <a href="#" class="ranking-item">
+                    <span class="rank-num">4</span>
+                    <div class="rank-content">
+                        <h4 class="rank-title">罪恶装备 -STRIVE-</h4>
+                        <span class="rank-desc">格斗 / 2021 / 极致流畅的连招系统</span>
+                    </div>
+                </a>
+                <a href="#" class="ranking-item">
+                    <span class="rank-num">5</span>
+                    <div class="rank-content">
+                        <h4 class="rank-title">暗影刺客：起源 (Assassin's Creed Shadows)</h4>
+                        <span class="rank-desc">开放世界 / 2024 / 日本战国时代的暗杀艺术</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- 订阅区域 -->
+        <section class="newsletter">
+            <div class="container">
+                <h3>加入极限杀手社群</h3>
+                <p>获取最新电影上映资讯、独家游戏评测及幕后花絮，绝不发送垃圾邮件。</p>
+                <form class="input-group" onsubmit="event.preventDefault();">
+                    <input type="email" placeholder="输入您的电子邮箱" required>
+                    <button type="submit" class="btn btn-primary">订阅更新</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于极限杀手</h4>
+                    <p style="font-size: 0.85rem; line-height: 1.8;">我们致力于为硬核动作爱好者提供最专业的资讯平台。从好莱坞大片到独立游戏，我们挖掘每一个值得关注的动作瞬间。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>栏目导航</h4>
+                    <ul>
+                        <li><a href="#">最新影评</a></li>
+                        <li><a href="#">游戏攻略</a></li>
+                        <li><a href="#">幕后特技</a></li>
+                        <li><a href="#">悬疑小说推荐</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>法律声明</h4>
+                    <ul>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                        <li><a href="#">版权声明</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 极限杀手. All Rights Reserved. 本站内容仅供交流学习使用。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                      </html>
