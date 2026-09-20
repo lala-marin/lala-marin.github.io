@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="俺去啦最新网址 - 汇聚最新热门影视、游戏、软件及娱乐资讯，提供快速稳定的直达链接与正版资源导航。">
+    <meta name="keywords" content="俺去啦最新网址,俺去啦,影视导航,游戏下载,软件推荐">
+    <title>俺去啦最新网址-热门影视游戏软件导航与资源站</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e60012;
+            --primary-hover: #c4000f;
+            --bg-color: #f5f5f5;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-color: #e0e0e0;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 顶部导航 */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-menu a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .search-bar {
+            display: flex;
+            background: #f0f0f0;
+            border-radius: 4px;
+            padding: 4px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            padding: 6px 12px;
+            outline: none;
+            width: 200px;
+            font-size: 14px;
+        }
+
+        .search-bar button {
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            padding: 4px 8px;
+            color: var(--text-secondary);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 分类导航 */
+        .category-nav {
+            background: var(--card-bg);
+            padding: 20px 0;
+            margin-bottom: 24px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .category-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .category-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px 20px;
+            border-radius: 6px;
+            transition: background 0.2s;
+            cursor: pointer;
+            width: 100px;
+        }
+
+        .category-item:hover {
+            background-color: #fff0f1;
+        }
+
+        .cat-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .cat-name {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* 主体内容网格 */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        /* 卡片样式 */
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 20px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .site-card {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border-color);
+            padding: 16px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .site-card:hover {
+            border-color: var(--primary-color);
+        }
+
+        .site-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .site-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .site-info h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .site-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .site-url {
+            margin-top: auto;
+            padding-top: 12px;
+            border-top: 1px dashed var(--border-color);
+        }
+
+        .btn-link {
+            font-size: 13px;
+            color: var(--primary-color);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* 侧边栏 */
+        .sidebar-widget {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .hot-list li {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .hot-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .hot-list a {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .hot-list .rank {
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            margin-right: 8px;
+            font-weight: bold;
+        }
+
+        .hot-list li:nth-child(2) .rank { background: #ff9a9e; }
+        .hot-list li:nth-child(3) .rank { background: #fecfef; color: var(--text-main); }
+
+        .hot-list .title {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 200px;
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: #f5f5f5;
+            color: var(--text-secondary);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            transition: background 0.2s;
+        }
+
+        .tag:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #2c2c2c;
+            color: #999;
+            padding: 40px 0;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            font-size: 12px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 12px 0;
+                gap: 12px;
+            }
+            
+            .nav-menu {
+                gap: 16px;
+                font-size: 14px;
+            }
+
+            .search-bar {
+                display: none; /* 移动端简化 */
+            }
+
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-item {
+                width: calc(50% - 6px);
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                <span>俺去啦</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#">影视</a>
+                <a href="#">游戏</a>
+                <a href="#">软件</a>
+                <a href="#">资讯</a>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索网站或资源...">
+                <button type="button">🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>俺去啦最新网址</h1>
+            <p>精选全网优质导航，提供最新、最全、最安全的影视、游戏、软件及互联网资源直达入口。</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- 分类导航 -->
+        <nav class="category-nav">
+            <ul class="category-list">
+                <li class="category-item">
+                    <div class="cat-icon">🎬</div>
+                    <span class="cat-name">影视娱乐</span>
+                </li>
+                <li class="category-item">
+                    <div class="cat-icon">🎮</div>
+                    <span class="cat-name">游戏下载</span>
+                </li>
+                <li class="category-item">
+                    <div class="cat-icon">💻</div>
+                    <span class="cat-name">软件工具</span>
+                </li>
+                <li class="category-item">
+                    <div class="cat-icon">📚</div>
+                    <span class="cat-name">小说阅读</span>
+                </li>
+                <li class="category-item">
+                    <div class="cat-icon">🎵</div>
+                    <span class="cat-name">音乐电台</span>
+                </li>
+                <li class="category-item">
+                    <div class="cat-icon">📰</div>
+                    <span class="cat-name">资讯社区</span>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="main-grid">
+            <!-- 左侧主要内容区 -->
+            <main>
+                <!-- 热门影视推荐 -->
+                <section class="card">
+                    <h2 class="section-title">热门影视推荐</h2>
+                    <div class="card-grid">
+                        <article class="site-card">
+                            <div class="site-header">
+                                <div class="site-icon">🎥</div>
+                                <div class="site-info">
+                                    <h3>高清影视库</h3>
+                                    <div class="site-desc">提供最新电影、电视剧、动漫高清在线观看，无广告，播放流畅。</div>
+                                </div>
+                            </div>
+                            <div class="site-url">
+                                <a href="#" class="btn-link">立即访问 &rarr;</a>
+                            </div>
+                        </article>
+
+                        <article class="site-card">
+                            <div class="site-header">
+                                <div class="site-icon">📺</div>
+                                <div class="site-info">
+                                    <h3>综艺在线</h3>
+                                    <div class="site-desc">全网综艺资源聚合，涵盖各大卫视热门综艺，精彩不容错过。</div>
+                                </div>
+                            </div>
+                            <div class="site-url">
+                                <a href="#" class="btn-link">立即访问 &rarr;</a>
+                            </div>
+                        </article>
+
+                        <article class="site-card">
+                            <div class="site-header">
+                                <div class="site-icon">🎬</div>
+                                <div class="site-info">
+                                    <h3>动漫天堂</h3>
+                                    <div class="site-desc">收录日漫、国漫、美漫资源，高清画质，更新及时，二次元聚集地。</div>
+                                </div>
+                            </div>
+                            <div class="site-url">
+                                <a href="#" class="btn-link">立即访问 &rarr;</a>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- 游戏软件精选 -->
+                <section class="card" style="margin-top: 24px;">
+                    <h2 class="section-title">热门游戏与软件</h2>
+                    <div class="card-grid">
+                        <article class="site-card">
+                            <div class="site-header">
+                                <div class="site-icon">🎮</div>
+                                <div class="site-info">
+                                    <h3>单机游戏网</h3>
+                                    <div class="site-desc">PC、主机游戏下载，破解补丁，攻略秘籍，游戏爱好者必备。</div>
+                                </div>
+                            </div>
+                            <div class="site-url">
+                                <a href="#" class="btn-link">立即访问 &rarr;</a>
+                            </div>
+                        </article>
+
+                        <article class="site-card">
+                            <div class="site-header">
+                                <div class="site-icon">📱</div>
+                                <div class="site-info">
+                                    <h3>安卓应用汇</h3>
+                                    <div class="site-desc">海量APK下载，安全无毒，各类实用工具、社交、系统软件。</div>
+                                </div>
+                            </div>
+                            <div class="site-url">
+                                <a href="#" class="btn-link">立即访问 &rarr;</a>
+                            </div>
+                        </article>
+
+                        <article class="site-card">
+                            <div class="site-header">
+                                <div class="site-icon">💻</div>
+                                <div class="site-info">
+                                    <h3>装机软件库</h3>
+                                    <div class="site-desc">系统重装、驱动下载、常用办公软件、设计软件正版资源。</div>
+                                </div>
+                            </div>
+                            <div class="site-url">
+                                <a href="#" class="btn-link">立即访问 &rarr;</a>
+                            </div>
+                        </article>
+                        
+                        <article class="site-card">
+                            <div class="site-header">
+                                <div class="site-icon">🛠️</div>
+                                <div class="site-info">
+                                    <h3>效率工具箱</h3>
+                                    <div class="site-desc">在线图片处理、PDF转换、格式化工具、开发辅助工具集。</div>
+                                </div>
+                            </div>
+                            <div class="site-url">
+                                <a href="#" class="btn-link">立即访问 &rarr;</a>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </main>
+
+            <!-- 右侧侧边栏 -->
+            <aside>
+                <div class="sidebar-widget">
+                    <h2 class="section-title">本周热门排行</h2>
+                    <ul class="hot-list">
+                        <li>
+                            <a href="#">
+                                <span class="rank">1</span>
+                                <span class="title">某音国际版 - 社交娱乐</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="rank">2</span>
+                                <span class="title">某奇艺 - 会员影视</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="rank">3</span>
+                                <span class="title">Steam - 游戏平台</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="rank">4</span>
+                                <span class="title">某度网盘 - 云存储</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="rank">5</span>
+                                <span class="title">某虎 - 游戏资讯</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h2 class="section-title">热门标签</h2>
+                    <div class="tag-cloud">
+                        <a href="#" class="tag">免费电影</a>
+                        <a href="#" class="tag">破解游戏</a>
+                        <a href="#" class="tag">学习网站</a>
+                        <a href="#" class="tag">壁纸</a>
+                        <a href="#" class="tag">开源</a>
+                        <a href="#" class="tag">设计素材</a>
+                        <a href="#" class="tag">直播</a>
+                        <a href="#" class="tag">工具</a>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h2 class="section-title">安全提示</h2>
+                    <p style="font-size: 13px; color: #666; line-height: 1.5;">
+                        本站提供的链接均为第三方资源网站。请用户注意保护个人信息，谨慎下载来源不明的软件，并安装杀毒软件以保障设备安全。
+                    </p>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo" style="color: #fff;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    <span>俺去啦</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#">关于我们</a>
+                    <a href="#">免责声明</a>
+                    <a href="#">联系我们</a>
+                    <a href="#">网站地图</a>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 俺去啦导航网. All Rights Reserved. 本站仅提供资源索引服务，不存储任何资源内容。
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
